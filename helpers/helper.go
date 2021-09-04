@@ -1,5 +1,1 @@
 package helpers
-
-func RouteClass() {
-
-}
