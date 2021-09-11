@@ -1,6 +1,7 @@
 package main
 
 import (
+	"beego-bbs/helpers"
 	"beego-bbs/models"
 	_ "beego-bbs/routers"
 	"fmt"
@@ -85,6 +86,9 @@ func main() {
 	beego.BConfig.WebConfig.Session.SessionProviderConfig = "127.0.0.1:63790"
 	//设置日志输出的目录
 	//beego.SetLogger("file", `{"filename":"logs/beego.log"}`)
-	//beego.AddFuncMap("Session",helpers.GetSessionUser)
+
+	//beego.AddFuncMap("active_class",controllers.CategoryController.ActiveClass)
+	//beego.AddFuncMap("topic_nav_active",controllers.CategoryController.TopicNavActive)
+	beego.AddFuncMap("urlContain", helpers.UrlContain)
 	beego.Run()
 }

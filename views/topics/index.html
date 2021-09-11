@@ -1,17 +1,20 @@
 
 <div class="row mb-5">
   <div class="col-lg-9 col-md-9 topic-list">
-<!--    {{if .Category}}-->
-<!--    <div class="alert alert-info" role="alert">-->
-<!--      {{ .Category.Name }} ：{{ .Category.Description }}-->
-<!--    </div>-->
-<!--    {{end}}-->
+    {{if .Category}}
+    <div class="alert alert-info" role="alert">
+      {{ .Category.Name }} ：{{ .Category.Description }}
+    </div>
+    {{end}}
     <div class="card ">
-
+        {{$c_recent:=urlfor "CategoryController.Show" ":id" 1 "order" "recent"}}
+        {{$c_default:=urlfor "CategoryController.Show" ":id" 2 "order" "default"}}
+        {{$t_recent:=urlfor "TopicController.Index" "order" "recent"}}
+        {{$t_default:=urlfor "TopicController.Index" "order" "default"}}
       <div class="card-header bg-transparent">
         <ul class="nav nav-pills">
-          <li class="nav-item"><a class="nav-link active" href="?order=default">最后回复</a></li>
-          <li class="nav-item"><a class="nav-link" href="?order=recent">最新发布</a></li>
+          <li class="nav-item "><a class="nav-link {{with urlContain .rUrl $c_default}} active {{end}} {{with urlContain .rUrl $t_default}} active {{end}}" href="?order=default">最后回复</a></li>
+          <li class="nav-item "><a class="nav-link {{with urlContain .rUrl $c_recent}} active {{end}} {{with urlContain .rUrl $t_recent}} active {{end}}" href="?order=recent">最新发布</a></li>
         </ul>
       </div>
 

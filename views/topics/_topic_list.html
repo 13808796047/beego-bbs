@@ -21,8 +21,8 @@
       </div>
 
       <small class="media-body meta text-secondary">
-
-        <a class="text-secondary" href=" /categories/show/{{.Category.Id}}" title="{{ .Category.Name}}">
+        {{$id :=.Category.Id}}
+        <a class="text-secondary" href='{{urlfor "CategoryController.Show" ":id" $id}}' title="{{ .Category.Name}}">
           <i class="far fa-folder"></i>
           {{ .Category.Name}}
         </a>

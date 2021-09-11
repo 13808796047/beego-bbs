@@ -14,4 +14,5 @@ func init() {
 	beego.Router("/login", &auth.LoginController{}, "post:Login")
 	beego.Router("/logout", &auth.LoginController{}, "post:Logout")
 	beego.Router("/topics", &controllers.TopicController{},"get:Index")
+	beego.Router("/categories/show/:id([0-9]+)",&controllers.CategoryController{},"get:Show")
 }

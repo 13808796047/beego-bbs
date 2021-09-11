@@ -9,7 +9,7 @@ func (t *Topic) Insert() error {
 	}
 	return nil
 }
-func (t Topic) Read(fields ...string) error {
+func (t *Topic) Read(fields ...string) error {
 	if err:= orm.NewOrm().Read(t, fields...);err != nil {
 		return err
 	}
@@ -21,6 +21,14 @@ func (t *Topic) Update(fields ...string) error {
 	}
 	return nil
 }
-func Topics() orm.QuerySeter {
-	return orm.NewOrm().QueryTable("topic")
+func Topics(order string) orm.QuerySeter {
+	query := orm.NewOrm().QueryTable("topic")
+	switch order {
+	case "recent":
+		query.OrderBy("-CreatedAt")
+		break
+	default:
+		query.OrderBy("-UpdatedAt")
+	}
+	return query
 }

@@ -8,13 +8,23 @@
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <!-- Left Side Of Navbar -->
+
             <ul class="navbar-nav mr-auto">
+                {{$topic_index:=urlfor "TopicController.Index" }}
+                <li class="nav-item {{if urlContain .rUrl $topic_index}} active {{else}} {{end}}"><a class="nav-link" href='{{$topic_index}}'>话题</a></li>
+
+                {{$category_1:=urlfor "CategoryController.Show" ":id" 1}}
+                {{$category_2:=urlfor "CategoryController.Show" ":id" 2}}
+                {{$category_3:=urlfor "CategoryController.Show" ":id" 3}}
+                {{$category_4:=urlfor "CategoryController.Show" ":id" 4}}
+                <li class="nav-item {{if urlContain .rUrl $category_1}} active {{else}} {{end}}"><a class="nav-link" href='{{$category_1}}'>分享</a></li>
+                <li class="nav-item {{if urlContain .rUrl $category_2}} active {{else}} {{end}}"><a class="nav-link" href='{{$category_2}}'>教程</a></li>
+                <li class="nav-item {{if urlContain .rUrl $category_3}} active {{else}} {{end}}"><a class="nav-link" href='{{$category_3}}'>问答</a></li>
+                <li class="nav-item {{if urlContain .rUrl $category_4}} active {{else}} {{end}}"><a class="nav-link" href='{{$category_4}}'>公告</a></li>
 
             </ul>
-
             <ul class="navbar-nav justify-content-end">
                 {{with $.User.Name}}
                 {{.}}
