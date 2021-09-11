@@ -38,20 +38,44 @@ func init() {
 	//	}}
 	//// create table
 	//orm.NewOrm().InsertMulti(1, categories)
-	//user_id := []int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10}
-	//cate_id := []int{1, 2, 3, 4}
-	//var data []models.Topic
-	//for i := 0; i < 100; i++ {
-	//	user := models.Topic{
-	//		Title:      faker.Lorem().Sentence(100),
-	//		Body:        faker.Lorem().Paragraph(200),
-	//		Except:      faker.Lorem().Paragraph(100),
+
+	//for i := 0; i < 14; i++ {
+	//	user := models.User{
+	//
+	//		Name: faker.Name().Name(),
+	//		Email:faker.Internet().Email(),
+	//		Password:"$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi",
+	//		Avatar: faker.Avatar().String(),
 	//	}
-	//	data = append(data, user)
+	//
+	//
+	//	orm.NewOrm().Insert(&user)
+	//}
+	//user_id := []int{ 3, 4, 5, 6, 7, 8, 9, 10,11,12,13,14}
+	//cate_id := []int{1, 2, 3, 4}
+	//var users []*models.User
+	//orm.NewOrm().QueryTable("user").All(&users)
+	//var categories []*models.Category
+	//orm.NewOrm().QueryTable("category").All(&categories)
+	//for i := 0; i < 100; i++ {
+	//
+	//
+	//	topic := models.Topic{
+	//		Title:      faker.Lorem().String(),
+	//		Body:        faker.Lorem().Sentence(10),
+	//		Except:      faker.Lorem().Sentence(10),
+	//	}
+	//	user := models.User{Id: faker.RandomInt(3,14)}
+	//
+	//	orm.NewOrm().Read(&user)
+	//	category := models.Category{Id: faker.RandomInt(1,4)}
+	//	orm.NewOrm().Read(&category)
+	//	topic.User = &user
+	//	topic.Category = &category
+	//	//log.Println(topic)
+	//	 orm.NewOrm().Insert(&topic)
 	//
 	//}
-	//
-	//orm.NewOrm().InsertMulti(1, data)
 	orm.RunSyncdb("default", false, true)
 }
 func main() {

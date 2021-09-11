@@ -22,5 +22,5 @@ func (t *Topic) Update(fields ...string) error {
 	return nil
 }
 func Topics() orm.QuerySeter {
-	return orm.NewOrm().QueryTable("topic").OrderBy("-Id")
+	return orm.NewOrm().QueryTable("topic")
 }
