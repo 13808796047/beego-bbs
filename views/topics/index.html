@@ -7,35 +7,21 @@
     </div>
     {{end}}
     <div class="card ">
-        {{$c_recent1:=urlfor "CategoryController.Show" ":id" 1 "order" "recent"}}
-        {{$c_recent2:=urlfor "CategoryController.Show" ":id" 2 "order" "recent"}}
-        {{$c_recent3:=urlfor "CategoryController.Show" ":id" 3 "order" "recent"}}
-        {{$c_recent4:=urlfor "CategoryController.Show" ":id" 4 "order" "recent"}}
-        {{$c_default1:=urlfor "CategoryController.Show" ":id" 1 "order" "default"}}
-        {{$c_default2:=urlfor "CategoryController.Show" ":id" 2 "order" "default"}}
-        {{$c_default3:=urlfor "CategoryController.Show" ":id" 3 "order" "default"}}
-        {{$c_default4:=urlfor "CategoryController.Show" ":id" 4 "order" "default"}}
+<!--        {{$c_recent1:=urlfor "CategoryController.Show" ":id" 1 "order" "recent"}}-->
+<!--        {{$c_recent2:=urlfor "CategoryController.Show" ":id" 2 "order" "recent"}}-->
+<!--        {{$c_recent3:=urlfor "CategoryController.Show" ":id" 3 "order" "recent"}}-->
+<!--        {{$c_recent4:=urlfor "CategoryController.Show" ":id" 4 "order" "recent"}}-->
+<!--        {{$c_default1:=urlfor "CategoryController.Show" ":id" 1 "order" "default"}}-->
+<!--        {{$c_default2:=urlfor "CategoryController.Show" ":id" 2 "order" "default"}}-->
+<!--        {{$c_default3:=urlfor "CategoryController.Show" ":id" 3 "order" "default"}}-->
+<!--        {{$c_default4:=urlfor "CategoryController.Show" ":id" 4 "order" "default"}}-->
 
-        {{$t_recent:=urlfor "TopicController.Index" "order" "recent"}}
-        {{$t_default:=urlfor "TopicController.Index" "order" "default"}}
+<!--        {{$t_recent:=urlfor "TopicController.Index" "order" "recent"}}-->
+<!--        {{$t_default:=urlfor "TopicController.Index" "order" "default"}}-->
       <div class="card-header bg-transparent">
         <ul class="nav nav-pills">
-          <li class="nav-item "><a class="nav-link
-          {{with urlContain .rUrl $c_default1}} active {{end}}
-          {{with urlContain .rUrl $c_default2}} active {{end}}
-          {{with urlContain .rUrl $c_default3}} active {{end}}
-          {{with urlContain .rUrl $c_default4}} active {{end}}
-
-           {{with urlContain .rUrl $t_default}} active {{end}}
-
-" href="?order=default"
-          >最后回复</a></li>
-          <li class="nav-item "><a class="nav-link
-          {{with urlContain .rUrl $c_recent1}} active {{end}}
-          {{with urlContain .rUrl $c_recent2}} active {{end}}
-          {{with urlContain .rUrl $c_recent3}} active {{end}}
-          {{with urlContain .rUrl $c_recent4}} active {{end}}
-          {{with urlContain .rUrl $t_recent}} active {{end}}" href="?order=recent">最新发布</a></li>
+          <li class="nav-item "><a class="nav-link {{with urlContain .rUrl "default"}} active {{end}}" href="?order=default">最后回复</a></li>
+          <li class="nav-item "><a class="nav-link {{with urlContain .rUrl "recent"}} active {{end}}" href="?order=recent">最新发布</a></li>
         </ul>
       </div>
 

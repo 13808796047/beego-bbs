@@ -11,7 +11,7 @@
 
     <!-- Styles -->
     <link href="/static/css/app.min.css" rel="stylesheet">
-
+    {{.Styles}}
 </head>
 
 <body>
@@ -29,11 +29,10 @@
 
         {{template "layouts/_footer.html" .}}
     </div>
-
-    <!-- Scripts -->
-    <!-- Scripts -->
     <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.min.js"></script>
+    {{.Scripts}}
+
 </body>
 
 </html>

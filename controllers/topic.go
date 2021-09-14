@@ -4,6 +4,7 @@ import (
 	"beego-bbs/models"
 	"beego-bbs/pkg/paginator"
 	"github.com/astaxie/beego"
+	"github.com/astaxie/beego/orm"
 )
 
 type TopicController struct {
@@ -26,4 +27,20 @@ func (t *TopicController) Index()  {
 	t.Data["Topics"] = topics
 	t.Data["rUrl"] = t.Ctx.Request.RequestURI
 	t.TplName = "topics/index.html"
+}
+func (t *TopicController)Create()  {
+	var categories []*models.Category
+	orm.NewOrm().QueryTable("category").All(&categories)
+	t.Layout = "layouts/app.html"
+	t.LayoutSections = make(map[string]string)
+	t.LayoutSections["Styles"] = "topics/_styles.html"
+	t.LayoutSections["Scripts"] = "topics/_scripts.html"
+	t.Data["title"] = "话题创建"
+	t.Data["class"] = "topics-create"
+	t.Data["Categories"] = categories
+	t.Data["rUrl"] = t.Ctx.Request.RequestURI
+	t.TplName = "topics/create_and_edit.html"
+}
+func (t TopicController) Store()  {
+	
 }

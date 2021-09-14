@@ -13,12 +13,11 @@
 
             <ul class="navbar-nav mr-auto">
                 {{$topic_index:=urlfor "TopicController.Index" }}
-                <li class="nav-item {{if urlContain .rUrl $topic_index}} active {{else}} {{end}}"><a class="nav-link" href='{{$topic_index}}'>话题</a></li>
-
                 {{$category_1:=urlfor "CategoryController.Show" ":id" 1}}
                 {{$category_2:=urlfor "CategoryController.Show" ":id" 2}}
                 {{$category_3:=urlfor "CategoryController.Show" ":id" 3}}
                 {{$category_4:=urlfor "CategoryController.Show" ":id" 4}}
+                <li class="nav-item {{if urlContain .rUrl $topic_index}} active {{else}} {{end}}"><a class="nav-link" href='{{$topic_index}}'>话题</a></li>
                 <li class="nav-item {{if urlContain .rUrl $category_1}} active {{else}} {{end}}"><a class="nav-link" href='{{$category_1}}'>分享</a></li>
                 <li class="nav-item {{if urlContain .rUrl $category_2}} active {{else}} {{end}}"><a class="nav-link" href='{{$category_2}}'>教程</a></li>
                 <li class="nav-item {{if urlContain .rUrl $category_3}} active {{else}} {{end}}"><a class="nav-link" href='{{$category_3}}'>问答</a></li>
@@ -28,7 +27,9 @@
             <ul class="navbar-nav justify-content-end">
                 {{with $.User.Name}}
                 {{.}}
-                <li class="nav-item"><a class="nav-link" href="#">用户列表</a></li>
+                <a class="nav-link mt-1 mr-3 font-weight-bold" href="{{ urlfor "TopicController.Create" }}">
+                    <i class="fa fa-plus"></i>
+                </a>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <img src="" class="img-responsive img-circle" width="30px" height="30px">
