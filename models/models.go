@@ -26,8 +26,8 @@ type Category struct {
 }
 type Topic struct {
 	Id int
-	Title string
-	Body string
+	Title string  `form:"title"`
+	Body string   `orm:"type(text);null" form:"body"`
 	ReplyCount      uint64 `orm:"default(0)"`
 	ViewCount       uint64 `orm:"default(0)"`
 	LastReplyUserId uint64 `orm:"default(0)"`

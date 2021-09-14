@@ -32,3 +32,7 @@ func Topics(order string) orm.QuerySeter {
 	}
 	return query
 }
+func (t *Topic) BeforeSave(user *User,category *Category)  {
+	t.User = user
+	t.Category = category
+}
